@@ -1,2 +1,2 @@
 # activity-recorder
-predict excersice of a user
+predict excersice done by the user
