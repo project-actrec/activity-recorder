@@ -1,7 +1,6 @@
 import numpy as np
 from flask import Flask,request,jsonify, render_template
 import pickle
-import numpy as np
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
@@ -21,7 +20,7 @@ model=pickle.load(open('forestModel.pkl','rb'))
 @app.route('/')
 def home():    
     return render_template('index.html')
-@app.route('/start')
+@app.route('/start',methods=['POST'])
 def start():
     ...
     ref.update({'initial':1})
@@ -45,7 +44,7 @@ def start():
         timer4+=1
     ref.update({'timer1':timer1,'timer2':timer2,'timer3':timer3,'timer4':timer4})
     return render_template('index.html',prediction_text= result)
-@app.route('/stop')
+@app.route('/stop',methods=['POST'])
 def stop():
     ...
     b=ref.get()
